@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Smith - Senior Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #2d3748;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styles */
+        .header-section {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .name-title h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a202c;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .contact-info a {
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: #2b6cb1;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a202c;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2d3748;
+        }
+
+        /* Summary Section */
+        .summary-text {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 30px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .company-name {
+            font-size: 15px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .date-range {
+            font-size: 14px;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .experience-bullets {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .experience-bullets li {
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .experience-bullets li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4a5568;
+        }
+
+        /* Key Accomplishments */
+        .accomplishments-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .accomplishment-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .accomplishment-card:hover {
+            background: #edf2f7;
+            border-color: #cbd5e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .accomplishment-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .accomplishment-description {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .impact-metric {
+            display: inline-block;
+            background: #2b6cb1;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .skill-list {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .skill-bar {
+            background: #e2e8f0;
+            height: 6px;
+            border-radius: 3px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: #2b6cb1;
+            border-radius: 3px;
+            transition: width 1.5s ease-in-out;
+            width: 0;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .project-card {
+            border: 1px solid #e2e8f0;
+            padding: 18px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            border-color: #cbd5e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .project-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 6px;
+        }
+
+        .project-description {
+            font-size: 13px;
+            color: #4a5568;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tech-tag {
+            font-size: 11px;
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .school-name {
+            font-size: 14px;
+            color: #4a5568;
+            margin-top: 4px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 40px;
+            border-radius: 12px;
+            animation: slideUp 0.3s;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 25px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .close-btn {
+            font-size: 28px;
+            color: #718096;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #1a202c;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .name-title h1 {
+                font-size: 32px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .date-range {
+                margin-top: 4px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name-title h1 {
+                font-size: 28px;
+            }
+
+            .section-header {
+                font-size: 14px;
+            }
+
+            .experience-bullets li {
+                font-size: 13px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 11pt;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .modal {
+                display: none !important;
+            }
+
+            .accomplishment-card,
+            .project-card {
+                page-break-inside: avoid;
+                cursor: default;
+            }
+
+            .accomplishment-card:hover,
+            .project-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header-section">
+            <div class="name-title">
+                <h1>John Smith</h1>
+            </div>
+            <div style="font-size: 18px; color: #4a5568; margin-bottom: 15px;">
+                Senior Software Engineer | 10+ Years Experience
+            </div>
+            <div class="contact-info">
+                <span><i class="fas fa-envelope"></i> john.smith@email.com</span>
+                <span><i class="fas fa-phone"></i> (555) 123-4567</span>
+                <span><i class="fas fa-map-marker-alt"></i> San Francisco, CA</span>
+                <a href="#"><i class="fab fa-linkedin"></i> linkedin.com/in/johnsmith</a>
+                <a href="#"><i class="fab fa-github"></i> github.com/johnsmith</a>
+                <a href="#"><i class="fas fa-globe"></i> johnsmith.dev</a>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section>
+            <h2 class="section-header">Professional Summary</h2>
+            <p class="summary-text">
+                Innovative Senior Software Engineer with 10+ years of experience designing and implementing scalable distributed systems that serve millions of users. Expert in full-stack development with a proven track record of leading cross-functional teams to deliver high-impact projects on time and under budget. Passionate about mentoring junior developers and driving technical excellence through best practices and continuous improvement.
+            </p>
+        </section>
+
+        <!-- Key Accomplishments -->
+        <section>
+            <h2 class="section-header">Key Accomplishments</h2>
+            <div class="accomplishments-grid">
+                <div class="accomplishment-card" onclick="openModal('accomplishment1')">
+                    <div class="accomplishment-title">Architected Microservices Platform</div>
+                    <div class="accomplishment-description">
+                        Led the design and implementation of a cloud-native microservices architecture that reduced system latency by 60% and improved scalability to handle 10M+ daily active users.
+                    </div>
+                    <span class="impact-metric">60% Latency Reduction</span>
+                    <span class="impact-metric">10M+ DAU</span>
+                </div>
+
+                <div class="accomplishment-card" onclick="openModal('accomplishment2')">
+                    <div class="accomplishment-title">AI-Powered Recommendation Engine</div>
+                    <div class="accomplishment-description">
+                        Developed machine learning pipeline that increased user engagement by 45% and generated $8M in additional annual revenue through personalized recommendations.
+                    </div>
+                    <span class="impact-metric">45% Engagement Increase</span>
+                    <span class="impact-metric">$8M Revenue</span>
+                </div>
+
+                <div class="accomplishment-card" onclick="openModal('accomplishment3')">
+                    <div class="accomplishment-title">DevOps Transformation Initiative</div>
+                    <div class="accomplishment-description">
+                        Spearheaded company-wide DevOps adoption, implementing CI/CD pipelines that reduced deployment time from days to hours and decreased production incidents by 75%.
+                    </div>
+                    <span class="impact-metric">75% Fewer Incidents</span>
+                    <span class="impact-metric">10x Faster Deployments</span>
+                </div>
+
+                <div class="accomplishment-card" onclick="openModal('accomplishment4')">
+                    <div class="accomplishment-title">Real-time Data Processing Platform</div>
+                    <div class="accomplishment-description">
+                        Built distributed stream processing system handling 1B+ events daily with sub-second latency, enabling real-time analytics and instant decision making.
+                    </div>
+                    <span class="impact-metric">1B+ Events/Day</span>
+                    <span class="impact-metric"><1s Latency</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section>
+            <h2 class="section-header">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Senior Software Engineer - Tech Lead</div>
+                        <div class="company-name">TechCorp Solutions | San Francisco, CA</div>
+                    </div>
+                    <div class="date-range">Jan 2020 - Present</div>
+                </div>
+                <ul class="experience-bullets">
+                    <li>Lead a team of 8 engineers developing cloud-native applications serving 5M+ users globally</li>
+                    <li>Architected and implemented microservices platform reducing infrastructure costs by 40% ($2M annually)</li>
+                    <li>Established engineering best practices including code reviews, testing standards, and documentation</li>
+                    <li>Mentored 5 junior developers, with 3 promoted to senior positions within 18 months</li>
+                    <li>Collaborated with product managers to define technical roadmap and deliver 15+ major features</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Senior Software Engineer</div>
+                        <div class="company-name">DataFlow Systems | Mountain View, CA</div>
+                    </div>
+                    <div class="date-range">Mar 2017 - Dec 2019</div>
+                </div>
+                <ul class="experience-bullets">
+                    <li>Developed real-time data processing pipeline handling 500M+ events daily using Apache Kafka and Spark</li>
+                    <li>Optimized database performance achieving 10x query speed improvement through indexing and caching</li>
+                    <li>Built RESTful APIs and GraphQL services supporting web and mobile applications</li>
+                    <li>Implemented automated testing framework increasing code coverage from 45% to 90%</li>
+                    <li>Led migration from monolithic architecture to microservices reducing deployment time by 80%</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Software Engineer II</div>
+                        <div class="company-name">CloudBase Inc. | Seattle, WA</div>
+                    </div>
+                    <div class="date-range">Jun 2014 - Feb 2017</div>
+                </div>
+                <ul class="experience-bullets">
+                    <li>Developed scalable backend services using Python, Node.js, and Go serving 1M+ requests daily</li>
+                    <li>Designed and implemented caching layer reducing database load by 60% and improving response times</li>
+                    <li>Built continuous integration pipeline automating testing and deployment processes</li>
+                    <li>Collaborated with cross-functional teams to deliver 20+ features meeting business requirements</li>
+                    <li>Participated in 24/7 on-call rotation maintaining 99.9% uptime SLA</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2 class="section-header">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="skill-category-title">Languages & Frameworks</div>
+                    <div class="skill-list">
+                        Python, JavaScript/TypeScript, Java, Go, React, Node.js, Spring Boot, Django
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95"></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Cloud & DevOps</div>
+                    <div class="skill-list">
+                        AWS, GCP, Docker, Kubernetes, Terraform, Jenkins, GitLab CI/CD
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Databases & Data</div>
+                    <div class="skill-list">
+                        PostgreSQL, MongoDB, Redis, Elasticsearch, Apache Kafka, Spark
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="88"></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Architecture & Design</div>
+                    <div class="skill-list">
+                        Microservices, REST APIs, GraphQL, Event-Driven, Domain-Driven Design
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="92"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <h2 class="section-header">Notable Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openModal('project1')">
+                    <div class="project-name">E-Commerce Platform Redesign</div>
+                    <div class="project-description">
+                        Led complete rewrite of legacy e-commerce platform serving 2M+ customers, improving performance by 3x and reducing cart abandonment by 25%.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openModal('project2')">
+                    <div class="project-name">Real-time Analytics Dashboard</div>
+                    <div class="project-description">
+                        Built executive dashboard providing real-time business insights, processing 100M+ events daily with sub-second query response times.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">Spark</span>
+                        <span class="tech-tag">Elasticsearch</span>
+                        <span class="tech-tag">D3.js</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openModal('project3')">
+                    <div class="project-name">ML-Powered Fraud Detection</div>
+                    <div class="project-description">
+                        Developed machine learning system detecting fraudulent transactions in real-time, preventing $5M+ in losses annually with 99.5% accuracy.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openModal('project4')">
+                    <div class="project-name">API Gateway Service</div>
+                    <div class="project-description">
+                        Created centralized API gateway handling 50M+ requests daily with authentication, rate limiting, and monitoring capabilities.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">gRPC</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">Prometheus</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openModal('project5')">
+                    <div class="project-name">Mobile App Backend</div>
+                    <div class="project-description">
+                        Architected scalable backend for mobile app with 500K+ downloads, supporting offline sync and real-time notifications.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">GraphQL</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openModal('project6')">
+                    <div class="project-name">Infrastructure Automation</div>
+                    <div class="project-description">
+                        Implemented IaC using Terraform, automating deployment of 100+ services and reducing provisioning time from hours to minutes.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Ansible</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2 class="section-header">Education</h2>
+            <div class="education-item">
+                <div class="degree-title">Master of Science in Computer Science</div>
+                <div class="school-name">Stanford University | 2012 - 2014</div>
+            </div>
+            <div class="education-item">
+                <div class="degree-title">Bachelor of Science in Software Engineering</div>
+                <div class="school-name">University of California, Berkeley | 2008 - 2012</div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section>
+            <h2 class="section-header">Certifications</h2>
+            <ul class="experience-bullets">
+                <li>AWS Solutions Architect Professional (2023)</li>
+                <li>Google Cloud Professional Cloud Architect (2022)</li>
+                <li>Certified Kubernetes Administrator (CKA) (2021)</li>
+                <li>MongoDB Certified Developer (2020)</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Modal Templates -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title"></h2>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modalData = {
+            accomplishment1: {
+                title: "Architected Microservices Platform",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Challenge</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        The company's monolithic application was struggling to scale with increasing user demand, 
+                        experiencing frequent outages and slow deployment cycles that were impacting business growth.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Solution</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Led a team of 12 engineers to decompose the monolith into 25+ microservices using domain-driven design principles. 
+                        Implemented event-driven architecture with Apache Kafka for inter-service communication and deployed services 
+                        on Kubernetes with auto-scaling capabilities.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technologies Used</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568;">
+                        Kubernetes, Docker, Apache Kafka, Spring Boot, Node.js, PostgreSQL, MongoDB, Redis, 
+                        Elasticsearch, Prometheus, Grafana, GitLab CI/CD
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Impact</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Reduced system latency by 60% (from 500ms to 200ms p95)</li>
+                        <li style="margin-bottom: 8px;">• Scaled to support 10M+ daily active users (from 1M)</li>
+                        <li style="margin-bottom: 8px;">• Decreased deployment time from 4 hours to 15 minutes</li>
+                        <li style="margin-bottom: 8px;">• Improved system reliability to 99.99% uptime</li>
+                        <li style="margin-bottom: 8px;">• Reduced infrastructure costs by 40% through efficient resource utilization</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Key Learnings</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        This project reinforced the importance of gradual migration strategies and comprehensive monitoring. 
+                        The strangler fig pattern allowed us to migrate incrementally while maintaining system stability. 
+                        Investing in observability early proved crucial for debugging distributed system issues.
+                    </p>
+                `
+            },
+            accomplishment2: {
+                title: "AI-Powered Recommendation Engine",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Challenge</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Users were struggling to discover relevant content among millions of items, leading to low engagement 
+                        rates and missed revenue opportunities. The existing rule-based system was unable to provide 
+                        personalized experiences at scale.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Solution</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Developed a hybrid recommendation system combining collaborative filtering, content-based filtering, 
+                        and deep learning models. Built real-time feature engineering pipeline and A/B testing framework 
+                        to continuously improve model performance.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technologies Used</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568;">
+                        Python, TensorFlow, PyTorch, Apache Spark, MLflow, Kubeflow, Redis, Cassandra, 
+                        Kafka Streams, Airflow, Docker, AWS SageMaker
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Impact</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Increased user engagement by 45% measured by click-through rate</li>
+                        <li style="margin-bottom: 8px;">• Generated $8M in additional annual revenue</li>
+                        <li style="margin-bottom: 8px;">• Improved conversion rate by 32%</li>
+                        <li style="margin-bottom: 8px;">• Reduced bounce rate by 28%</li>
+                        <li style="margin-bottom: 8px;">• Achieved <50ms inference latency for real-time recommendations</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Key Learnings</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        The importance of starting with simple models and iterating based on real user feedback. 
+                        Building robust A/B testing infrastructure early enabled rapid experimentation. 
+                        Feature engineering had more impact than model complexity for our use case.
+                    </p>
+                `
+            },
+            accomplishment3: {
+                title: "DevOps Transformation Initiative",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Challenge</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Development teams were spending 40% of their time on deployment and operational issues. 
+                        Manual deployment processes were error-prone, leading to frequent production incidents 
+                        and long recovery times.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Solution</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Championed cultural shift to DevOps practices across 50+ engineering teams. Implemented 
+                        comprehensive CI/CD pipelines, infrastructure as code, and established SRE practices 
+                        including SLIs/SLOs and error budgets.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technologies Used</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568;">
+                        Jenkins, GitLab CI/CD, Terraform, Ansible, Docker, Kubernetes, Helm, Prometheus, 
+                        Grafana, ELK Stack, PagerDuty, Datadog
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Impact</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Reduced deployment time from 3 days to 3 hours (10x improvement)</li>
+                        <li style="margin-bottom: 8px;">• Decreased production incidents by 75%</li>
+                        <li style="margin-bottom: 8px;">• Improved mean time to recovery (MTTR) from 4 hours to 30 minutes</li>
+                        <li style="margin-bottom: 8px;">• Increased deployment frequency from weekly to multiple times per day</li>
+                        <li style="margin-bottom: 8px;">• Achieved 99.95% availability across all services</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Key Learnings</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        DevOps transformation is primarily about culture change, not just tools. Starting with 
+                        pilot teams and showcasing early wins helped gain organization-wide buy-in. Investing 
+                        in developer experience and self-service tools was crucial for adoption.
+                    </p>
+                `
+            },
+            accomplishment4: {
+                title: "Real-time Data Processing Platform",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Challenge</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Business decisions were being made on stale data with batch processing running hours behind. 
+                        The existing ETL pipeline couldn't handle the exponential growth in data volume and velocity, 
+                        limiting real-time insights and responsive actions.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Solution</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Designed and built a distributed stream processing platform using Lambda architecture. 
+                        Implemented exactly-once processing semantics and built self-healing capabilities with 
+                        automatic failover and recovery mechanisms.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technologies Used</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568;">
+                        Apache Kafka, Apache Flink, Apache Spark Streaming, Cassandra, Elasticsearch, 
+                        Redis, HDFS, Parquet, Avro, Schema Registry, Kubernetes
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Impact</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Processing 1 billion+ events daily with sub-second latency</li>
+                        <li style="margin-bottom: 8px;">• Enabled real-time fraud detection saving $3M annually</li>
+                        <li style="margin-bottom: 8px;">• Reduced data processing costs by 50% through optimization</li>
+                        <li style="margin-bottom: 8px;">• Achieved 99.9% data accuracy with exactly-once semantics</li>
+                        <li style="margin-bottom: 8px;">• Empowered 100+ data analysts with self-service analytics</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Key Learnings</h3>
+                    <p style="color: #4a5568; line-height: 1.6;">
+                        Schema evolution strategy is critical for long-term maintainability. Building comprehensive 
+                        monitoring and alerting from day one prevented many production issues. The Lambda architecture 
+                        provided the right balance between real-time processing and batch accuracy.
+                    </p>
+                `
+            },
+            project1: {
+                title: "E-Commerce Platform Redesign",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Project Overview</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Complete rewrite of a legacy e-commerce platform built on outdated technology stack. 
+                        The project involved migrating from a monolithic PHP application to a modern microservices 
+                        architecture while maintaining business continuity.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technical Implementation</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Built React-based SPA with server-side rendering for SEO optimization</li>
+                        <li style="margin-bottom: 8px;">• Implemented GraphQL API gateway aggregating multiple microservices</li>
+                        <li style="margin-bottom: 8px;">• Designed event-sourced order management system</li>
+                        <li style="margin-bottom: 8px;">• Integrated with 15+ payment providers and shipping carriers</li>
+                        <li style="margin-bottom: 8px;">• Built recommendation engine using collaborative filtering</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Results</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Page load time reduced from 4.5s to 1.2s</li>
+                        <li style="margin-bottom: 8px;">• Cart abandonment decreased by 25%</li>
+                        <li style="margin-bottom: 8px;">• Mobile conversion rate increased by 40%</li>
+                        <li style="margin-bottom: 8px;">• Support for 2M+ concurrent users</li>
+                    </ul>
+                `
+            },
+            project2: {
+                title: "Real-time Analytics Dashboard",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Project Overview</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Built comprehensive analytics platform providing real-time insights into business metrics, 
+                        user behavior, and system performance. The dashboard became the primary tool for executive 
+                        decision-making and operational monitoring.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technical Implementation</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Stream processing pipeline using Kafka and Spark Streaming</li>
+                        <li style="margin-bottom: 8px;">• Time-series database for metric storage and aggregation</li>
+                        <li style="margin-bottom: 8px;">• WebSocket connections for real-time updates</li>
+                        <li style="margin-bottom: 8px;">• Custom D3.js visualizations for complex data representations</li>
+                        <li style="margin-bottom: 8px;">• Elasticsearch for log analysis and full-text search</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Results</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Processing 100M+ events daily with <1s latency</li>
+                        <li style="margin-bottom: 8px;">• 50+ custom dashboards serving 200+ users</li>
+                        <li style="margin-bottom: 8px;">• Reduced time to insight from hours to seconds</li>
+                        <li style="margin-bottom: 8px;">• 99.9% accuracy in real-time metrics</li>
+                    </ul>
+                `
+            },
+            project3: {
+                title: "ML-Powered Fraud Detection",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Project Overview</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Developed sophisticated fraud detection system using machine learning to identify and prevent 
+                        fraudulent transactions in real-time. The system analyzes patterns across millions of transactions 
+                        to detect anomalies and suspicious activities.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technical Implementation</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Ensemble model combining Random Forest, XGBoost, and Neural Networks</li>
+                        <li style="margin-bottom: 8px;">• Real-time feature engineering pipeline</li>
+                        <li style="margin-bottom: 8px;">• Model serving using TensorFlow Serving</li>
+                        <li style="margin-bottom: 8px;">• Continuous model retraining with feedback loop</li>
+                        <li style="margin-bottom: 8px;">• Explainable AI for regulatory compliance</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Results</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• 99.5% accuracy in fraud detection</li>
+                        <li style="margin-bottom: 8px;">• $5M+ prevented losses annually</li>
+                        <li style="margin-bottom: 8px;">• 0.1% false positive rate</li>
+                        <li style="margin-bottom: 8px;">• <100ms prediction latency</li>
+                    </ul>
+                `
+            },
+            project4: {
+                title: "API Gateway Service",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Project Overview</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Created centralized API gateway to manage all external API traffic, providing unified 
+                        authentication, rate limiting, caching, and monitoring across 100+ microservices.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technical Implementation</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Built high-performance gateway in Go using goroutines</li>
+                        <li style="margin-bottom: 8px;">• JWT-based authentication with OAuth 2.0 support</li>
+                        <li style="margin-bottom: 8px;">• Distributed rate limiting using Redis</li>
+                        <li style="margin-bottom: 8px;">• Circuit breaker pattern for fault tolerance</li>
+                        <li style="margin-bottom: 8px;">• Request/response transformation and validation</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Results</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Handling 50M+ requests daily</li>
+                        <li style="margin-bottom: 8px;">• P99 latency under 10ms</li>
+                        <li style="margin-bottom: 8px;">• 99.99% availability</li>
+                        <li style="margin-bottom: 8px;">• 70% reduction in backend load through caching</li>
+                    </ul>
+                `
+            },
+            project5: {
+                title: "Mobile App Backend",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Project Overview</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Architected and built scalable backend infrastructure for cross-platform mobile application, 
+                        supporting iOS and Android with real-time features and offline capabilities.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technical Implementation</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• GraphQL API with subscription support for real-time updates</li>
+                        <li style="margin-bottom: 8px;">• Conflict resolution for offline data synchronization</li>
+                        <li style="margin-bottom: 8px;">• Push notification system supporting millions of devices</li>
+                        <li style="margin-bottom: 8px;">• Image optimization and CDN integration</li>
+                        <li style="margin-bottom: 8px;">• End-to-end encryption for sensitive data</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Results</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• 500K+ app downloads in first 6 months</li>
+                        <li style="margin-bottom: 8px;">• 4.8/5 app store rating</li>
+                        <li style="margin-bottom: 8px;">• 60% daily active user rate</li>
+                        <li style="margin-bottom: 8px;">• <200ms API response time globally</li>
+                    </ul>
+                `
+            },
+            project6: {
+                title: "Infrastructure Automation",
+                content: `
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Project Overview</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568; line-height: 1.6;">
+                        Led infrastructure automation initiative to implement Infrastructure as Code (IaC) across 
+                        all environments, enabling reproducible deployments and disaster recovery capabilities.
+                    </p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Technical Implementation</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Terraform modules for AWS resource provisioning</li>
+                        <li style="margin-bottom: 8px;">• Ansible playbooks for configuration management</li>
+                        <li style="margin-bottom: 8px;">• GitOps workflow with automatic drift detection</li>
+                        <li style="margin-bottom: 8px;">• Blue-green deployment automation</li>
+                        <li style="margin-bottom: 8px;">• Automated security scanning and compliance checks</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #1a202c;">Results</h3>
+                    <ul style="margin-bottom: 20px; color: #4a5568; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">• Infrastructure provisioning time reduced from hours to minutes</li>
+                        <li style="margin-bottom: 8px;">• 100% infrastructure codified and version controlled</li>
+                        <li style="margin-bottom: 8px;">• Zero manual configuration across 5 environments</li>
+                        <li style="margin-bottom: 8px;">• 80% reduction in configuration-related incidents</li>
+                    </ul>
+                `
+            }
+        };
+
+        function openModal(key) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            
+            if (modalData[key]) {
+                modalTitle.textContent = modalData[key].title;
+                modalBody.innerHTML = modalData[key].content;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Animate skill bars when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 100);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe skills section
+        const skillsSection = document.querySelector('.skills-container');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effect for experience items
+        document.querySelectorAll('.experience-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.borderLeft = '3px solid #2b6cb1';
+                this.style.paddingLeft = '15px';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.borderLeft = 'none';
+                this.style.paddingLeft = '0';
+            });
+        });
+
+        // Print functionality
+        window.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>
